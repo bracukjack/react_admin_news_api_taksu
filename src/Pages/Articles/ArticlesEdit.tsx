@@ -1,6 +1,6 @@
 import * as React from "react";
 import {
-  Create,
+  Edit,
   SimpleForm,
   TextInput,
   DateInput,
@@ -9,9 +9,10 @@ import {
   ImageInput,
 } from "react-admin";
 
-export const ArticleCreate = () => (
-  <Create>
+export const ArticlesEdit = () => (
+  <Edit>
     <SimpleForm>
+      <TextInput label="ID" variant="outlined" source="id" disabled fullWidth />
       <TextInput
         label="Title"
         variant="outlined"
@@ -20,14 +21,14 @@ export const ArticleCreate = () => (
         fullWidth
       />
       <ImageInput variant="outlined" source="pictures" label="Related pictures">
-        <ImageField source="src" title="title" />
+        <ImageField source="imageUrl" title="title" />
       </ImageInput>
       <TextInput label="Site URL" variant="outlined" source="url" fullWidth />
 
       <TextInput
         label="News Site"
         variant="outlined"
-        source="news_site"
+        source="newsSite"
         fullWidth
       />
       <TextInput
@@ -44,5 +45,5 @@ export const ArticleCreate = () => (
         fullWidth
       />
     </SimpleForm>
-  </Create>
+  </Edit>
 );

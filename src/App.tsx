@@ -1,37 +1,33 @@
-import { Admin, Resource, ListGuesser } from "react-admin";
-import jsonServerProvider from "ra-data-json-server";
-import Article from "./Pages/Articles/Index";
-import Blog from "./Pages/Blogs/Index";
+import { Admin, Resource } from "react-admin";
 import Reports from "./Pages/Reports";
-import {
-  ArticleRounded,
-  Assessment,
-  Home,
-  Newspaper,
-} from "@mui/icons-material";
-import BlogsList from "./Pages/Blogs/BlogsList";
-import { ArticleCreate } from "./Pages/Articles/ArticleCreate";
-import { ArticleEdit } from "./Pages/Articles/ArticleEdit";
+import { ArticleRounded, Assessment, Newspaper } from "@mui/icons-material";
+import { ArticlesCreate } from "./Pages/Articles/ArticlesCreate";
+import { ArticlesEdit } from "./Pages/Articles/ArticlesEdit";
 import { BlogsCreate } from "./Pages/Blogs/BlogsCreate";
 import { BlogsEdit } from "./Pages/Blogs/BlogsEdit";
-
-const dataProvider = jsonServerProvider(
-  "https://api.spaceflightnewsapi.net/v4"
-);
+import ArticlesList from "./Pages/Articles/ArticlesList";
+import ArticlesShow from "./Pages/Articles/ArticlesShow";
+import BlogsList from "./Pages/Blogs/BlogsList";
+import BlogsShow from "./Pages/Blogs/BlogsShow";
+import dataProvider from "./Components/DataProviders";
 
 const App = () => (
   <Admin dataProvider={dataProvider}>
     <Resource
       icon={ArticleRounded}
-      {...Article}
-      create={ArticleCreate}
-      edit={ArticleEdit}
+      list={ArticlesList}
+      create={ArticlesCreate}
+      edit={ArticlesEdit}
+      show={ArticlesShow}
+      name={"Articles"}
     />
     <Resource
       icon={Newspaper}
-      {...Blog}
+      list={BlogsList}
       create={BlogsCreate}
       edit={BlogsEdit}
+      show={BlogsShow}
+      name={"Blogs"}
     />
     <Resource icon={Assessment} {...Reports} />
   </Admin>

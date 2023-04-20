@@ -1,19 +1,12 @@
-import { Delete, ModeEdit, Padding } from "@mui/icons-material";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActions,
-  IconButton,
-} from "@mui/material";
+import { Delete, ModeEdit } from "@mui/icons-material";
+import { Card, CardContent, Typography, CardActions } from "@mui/material";
 import { Show, TextField, ImageField, Button } from "react-admin";
 
-const ArticleShow = () => {
+const ArticlesShow = () => {
   return (
     <Show>
       <Card sx={{ padding: 5 }}>
-        <ImageField source="image_url" title="title" />
+        <ImageField source="imageUrl" title="title" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             <TextField fontSize={10} source="id" />
@@ -25,7 +18,7 @@ const ArticleShow = () => {
             <TextField fontSize={12} source="url" />
           </Typography>
           <Typography variant="body2" color="text.primary">
-            <TextField fontSize={16} source="news_site" />
+            <TextField fontSize={16} source="newsSite" />
           </Typography>
           <Typography variant="body2" color="text.primary">
             <TextField fontSize={16} source="summary" />
@@ -57,4 +50,4 @@ const ArticleShow = () => {
     </Show>
   );
 };
-export default ArticleShow;
+export default ArticlesShow;

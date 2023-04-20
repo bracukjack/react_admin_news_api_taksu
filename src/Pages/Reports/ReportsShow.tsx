@@ -1,23 +1,60 @@
+import { Card, CardContent, Typography, CardActions } from "@mui/material";
 import {
   Show,
-  SimpleShowLayout,
   TextField,
-  RichTextField,
   DateField,
   ImageField,
+  DeleteButton,
+  EditButton,
 } from "react-admin";
 
 const ReportsShow = () => {
   return (
     <Show>
-      <SimpleShowLayout>
-        <TextField source="id" />
-        <TextField source="title" />
-        <TextField source="url" />
-        <ImageField source="image_url" title="title" />
-        <TextField source="news_site" />
-        <TextField source="summary" />
-      </SimpleShowLayout>
+      <Card sx={{ padding: 5 }}>
+        <ImageField
+          source="imageUrl"
+          sx={{
+            "& img": {
+              maxWidth: 200,
+              maxHeight: 200,
+            },
+          }}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            <TextField fontSize={14} source="id" />
+          </Typography>
+          <Typography variant="body2" color="text.primary">
+            <DateField
+              fontSize={14}
+              source="publishedAt"
+              options={{
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }}
+            />
+          </Typography>
+          <Typography variant="body2" color="text.dark">
+            <TextField source="title" fontSize={20} fontWeight={600} />
+          </Typography>
+          <Typography variant="body2">
+            <TextField source="url" fontSize={14} />
+          </Typography>
+          <Typography variant="body2" color="text.primary">
+            <TextField source="newsSite" fontSize={16} fontWeight={600} />
+          </Typography>
+          <Typography variant="body2" color="text.primary">
+            <TextField source="summary" fontSize={14} />
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <EditButton />
+          <DeleteButton />
+        </CardActions>
+      </Card>
     </Show>
   );
 };

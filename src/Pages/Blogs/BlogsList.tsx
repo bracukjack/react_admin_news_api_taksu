@@ -1,20 +1,23 @@
 import {
-  BooleanField,
   Datagrid,
-  DateField,
+  DeleteButton,
+  EditButton,
   List,
+  ShowButton,
   TextField,
 } from "react-admin";
 
 const BlogsList = () => {
   return (
     <List>
-      <Datagrid>
+      <Datagrid rowClick="show">
         <TextField source="id" />
+        <TextField source="newsSite" />
         <TextField source="title" />
-        <DateField source="published_at" />
-        <TextField source="category" />
-        <BooleanField source="commentable" />
+        <TextField source="url" />
+        <ShowButton color="inherit" />
+        <EditButton />
+        <DeleteButton />
       </Datagrid>
     </List>
   );

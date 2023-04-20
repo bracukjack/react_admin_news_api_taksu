@@ -40,7 +40,7 @@ export const ArticlesEdit = () => (
       <DateInput
         label="Publication Date"
         variant="outlined"
-        source="published_at"
+        source="publishedAt"
         defaultValue={new Date()}
         fullWidth
       />

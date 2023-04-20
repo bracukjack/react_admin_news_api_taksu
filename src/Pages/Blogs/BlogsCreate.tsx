@@ -20,14 +20,14 @@ export const BlogsCreate = () => (
         fullWidth
       />
       <ImageInput variant="outlined" source="pictures" label="Related pictures">
-        <ImageField source="src" title="title" />
+        <ImageField source="imageUrl" title="title" />
       </ImageInput>
       <TextInput label="Site URL" variant="outlined" source="url" fullWidth />
 
       <TextInput
         label="News Site"
         variant="outlined"
-        source="news_site"
+        source="newsSite"
         fullWidth
       />
       <TextInput
@@ -39,7 +39,7 @@ export const BlogsCreate = () => (
       <DateInput
         label="Publication Date"
         variant="outlined"
-        source="published_at"
+        source="publishedAt"
         defaultValue={new Date()}
         fullWidth
       />

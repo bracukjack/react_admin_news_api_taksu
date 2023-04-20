@@ -1,5 +1,4 @@
 import { Admin, Resource } from "react-admin";
-import Reports from "./Pages/Reports";
 import { ArticleRounded, Assessment, Newspaper } from "@mui/icons-material";
 import { ArticlesCreate } from "./Pages/Articles/ArticlesCreate";
 import { ArticlesEdit } from "./Pages/Articles/ArticlesEdit";
@@ -10,6 +9,8 @@ import ArticlesShow from "./Pages/Articles/ArticlesShow";
 import BlogsList from "./Pages/Blogs/BlogsList";
 import BlogsShow from "./Pages/Blogs/BlogsShow";
 import dataProvider from "./Components/DataProviders";
+import ReportsList from "./Pages/Reports/ReportsList";
+import ReportsShow from "./Pages/Reports/ReportsShow";
 
 const App = () => (
   <Admin dataProvider={dataProvider}>
@@ -29,7 +30,12 @@ const App = () => (
       show={BlogsShow}
       name={"Blogs"}
     />
-    <Resource icon={Assessment} {...Reports} />
+    <Resource
+      icon={Assessment}
+      list={ReportsList}
+      show={ReportsShow}
+      name={"Reports"}
+    />
   </Admin>
 );
 

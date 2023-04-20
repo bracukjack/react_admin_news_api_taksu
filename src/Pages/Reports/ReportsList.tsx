@@ -1,4 +1,4 @@
-import { Datagrid, List, TextField } from "react-admin";
+import { Datagrid, DateField, List, TextField } from "react-admin";
 
 const ReportsList = () => {
   return (
@@ -7,11 +7,16 @@ const ReportsList = () => {
         <TextField source="id" />
         <TextField source="title" />
         <TextField source="url" />
-        <TextField source="image_url" />
-        <TextField source="news_site" />
-        <TextField source="sumary" />
-        <TextField source="published_at" />
-        <TextField source="update_at" />
+        <TextField source="newsSite" />
+        <DateField
+          source="publishedAt"
+          options={{
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }}
+        />
       </Datagrid>
     </List>
   );

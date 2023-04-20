@@ -1,57 +1,58 @@
-import { Delete, ModeEdit, Padding } from "@mui/icons-material";
+import { Card, CardContent, Typography, CardActions } from "@mui/material";
 import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActions,
-  IconButton,
-} from "@mui/material";
-import { Show, TextField, ImageField, Button } from "react-admin";
+  Show,
+  TextField,
+  ImageField,
+  DateField,
+  DeleteButton,
+  EditButton,
+} from "react-admin";
 
 const BlogsShow = () => {
   return (
     <Show>
       <Card sx={{ padding: 5 }}>
-        <ImageField source="image_url" title="title" />
+        <ImageField
+          source="imageUrl"
+          sx={{
+            "& img": {
+              maxWidth: 200,
+              maxHeight: 200,
+            },
+          }}
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            <TextField fontSize={10} source="id" />
+            <TextField fontSize={14} source="id" />
+          </Typography>
+          <Typography variant="body2" color="text.primary">
+            <DateField
+              fontSize={14}
+              source="publishedAt"
+              options={{
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }}
+            />
           </Typography>
           <Typography variant="body2" color="text.dark">
-            <TextField fontSize={20} fontWeight={600} source="title" />
+            <TextField source="title" fontSize={20} fontWeight={600} />
           </Typography>
           <Typography variant="body2">
-            <TextField fontSize={12} source="url" />
+            <TextField source="url" fontSize={14} />
           </Typography>
           <Typography variant="body2" color="text.primary">
-            <TextField fontSize={16} source="news_site" />
+            <TextField source="newsSite" fontSize={16} fontWeight={600} />
           </Typography>
           <Typography variant="body2" color="text.primary">
-            <TextField fontSize={16} source="summary" />
-          </Typography>
-          <Typography variant="body2" color="text.primary">
-            <TextField fontSize={12} source="published_at" />
-          </Typography>
-          <Typography variant="body2" color="text.primary">
-            <TextField fontSize={12} source="published_at" />
+            <TextField source="summary" fontSize={14} />
           </Typography>
         </CardContent>
         <CardActions>
-          <Button
-            size="medium"
-            label="Edit"
-            variant="outlined"
-            color="primary"
-            startIcon={<ModeEdit />}
-          ></Button>
-          <Button
-            size="medium"
-            label="Delete"
-            variant="outlined"
-            color="secondary"
-            startIcon={<Delete />}
-          ></Button>
+          <EditButton />
+          <DeleteButton />
         </CardActions>
       </Card>
     </Show>

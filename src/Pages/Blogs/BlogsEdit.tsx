@@ -12,6 +12,7 @@ import {
 export const BlogsEdit = () => (
   <Edit>
     <SimpleForm>
+      <TextInput label="ID" variant="outlined" source="id" disabled fullWidth />
       <TextInput
         label="Title"
         variant="outlined"
@@ -20,14 +21,14 @@ export const BlogsEdit = () => (
         fullWidth
       />
       <ImageInput variant="outlined" source="pictures" label="Related pictures">
-        <ImageField source="src" title="title" />
+        <ImageField source="imageUrl" title="title" />
       </ImageInput>
       <TextInput label="Site URL" variant="outlined" source="url" fullWidth />
 
       <TextInput
         label="News Site"
         variant="outlined"
-        source="news_site"
+        source="newsSite"
         fullWidth
       />
       <TextInput
@@ -39,7 +40,7 @@ export const BlogsEdit = () => (
       <DateInput
         label="Publication Date"
         variant="outlined"
-        source="published_at"
+        source="publishedAt"
         defaultValue={new Date()}
         fullWidth
       />

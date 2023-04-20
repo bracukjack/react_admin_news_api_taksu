@@ -1,6 +1,13 @@
 import { Delete, ModeEdit } from "@mui/icons-material";
 import { Card, CardContent, Typography, CardActions } from "@mui/material";
-import { Show, TextField, ImageField, Button } from "react-admin";
+import {
+  Show,
+  TextField,
+  ImageField,
+  Button,
+  DeleteButton,
+  EditButton,
+} from "react-admin";
 
 const ArticlesShow = () => {
   return (
@@ -31,20 +38,8 @@ const ArticlesShow = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button
-            size="medium"
-            label="Edit"
-            variant="outlined"
-            color="primary"
-            startIcon={<ModeEdit />}
-          ></Button>
-          <Button
-            size="medium"
-            label="Delete"
-            variant="outlined"
-            color="secondary"
-            startIcon={<Delete />}
-          ></Button>
+          <EditButton />
+          <DeleteButton />
         </CardActions>
       </Card>
     </Show>
